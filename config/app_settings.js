@@ -1,10 +1,12 @@
-var git_repo = "https://github.com/sahat/hackathon-starter";
+var git_repo = "https://github.com/rockaBe/bettersclub";
 
 module.exports = {
-  project_name: "Express Starter",
-  company_name: "Company, Inc.",
+  project_name: "betters.club",
+  company: {
+    "name": "rockaBe ventures",
+    "url" : "http://www.rocka.be"
+  },
   footer_links: {
-    "Licensed under MIT License": "http://en.wikipedia.org/wiki/MIT_License",
     "Terms of Use": "#",
     "Github project": git_repo,
     "Issues": git_repo + "/issues"

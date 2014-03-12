@@ -3,7 +3,8 @@ mixin setup_link(name, link)
 
 #footer
   ul.list-inline.pull-left
-    li © 2014 #{app_settings.company_name}
+    li © 2014 
+      +setup_link(app_settings.company.url, app_settings.company.name)
     each val, key in app_settings.footer_links
       +setup_link(val, key)
   ul.list-inline.pull-right
