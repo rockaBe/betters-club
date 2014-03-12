@@ -4,6 +4,6 @@ mixin setup_link(name, link)
 #footer
   ul.list-inline.pull-left
     li © #{new Date().getFullYear()} 
-    each val, key in appsettings.footer_links
+    each val, key in app_settings.footer_links
       +setup_link(val, key)
   ul.list-inline.pull-right
