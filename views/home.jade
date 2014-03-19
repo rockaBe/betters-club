@@ -1,8 +1,17 @@
 extends layout
 
 block content
-  h1 Bootstrap starter template
+  h1 Start betting on various events - with your friends
   p.lead
-    | Use this document as a way to quickly start any new project.
+    | You want to start betting competitions with your friends easily?
     br
-    | All you get is this text and a mostly barebones HTML document.
+    | Then start a new competition right now!
+  p.lead
+    if !user
+      a(href='/signup', class='btn btn-success btn-lg', role='button') 
+        span.fa.fa-user 
+        span Create an account right now
+    else
+      a(href='#', class='btn btn-success btn-lg', role='button') 
+        span.fa.fa-trophy 
+        span Create a new competition

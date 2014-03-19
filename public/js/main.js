@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
-  // Place JavaScript code here...
+  $('.close').on('click', function(){
+    $(this).parent('.alert').remove();
+  });
 
 });
