@@ -1,13 +1,19 @@
 #flash
   if messages.errors
     .alert.alert-danger.animated.fadeIn
+      a(href="#", data-dismiss="alert", class="close")
+        span.fa.fa-times
       for error in messages.errors
         div= error.msg
   if messages.info
     .alert.alert-info.animated.fadeIn
+      a(href="#", data-dismiss="alert-info", class="close")
+        span.fa.fa-times
       for info in messages.info
         div= info.msg
   if messages.success
     .alert.alert-success.animated.fadeIn
+      a(href="#", data-dismiss="alert-success", class="close")
+        span.fa.fa-times
       for success in messages.success
         div= success.msg

@@ -2,6 +2,7 @@ var git_repo = "https://github.com/rockaBe/bettersclub";
 
 module.exports = {
   project_name: "betters.club",
+  contact_email: "rockaBe@gmail.com",
   company: {
     "name": "rockaBe ventures",
     "url" : "http://www.rocka.be"

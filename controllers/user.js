@@ -5,6 +5,7 @@ var nodemailer = require('nodemailer');
 var passport = require('passport');
 var User = require('../models/User');
 var secrets = require('../config/secrets');
+var app_settings = require('../config/app_settings');
 
 /**
  * GET /login
@@ -275,16 +276,16 @@ exports.postReset = function(req, res, next) {
     },
     function(user, done) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
-        service: 'SendGrid',
+        service: 'Gmail',
         auth: {
-          user: secrets.sendgrid.user,
-          pass: secrets.sendgrid.password
+          user: secrets.gmail.user,
+          pass: secrets.gmail.password
         }
       });
       var mailOptions = {
         to: user.email,
-        from: 'hackathon@starter.com',
-        subject: 'Your Hackathon Starter password has been changed',
+        from: app_settings.contact_email,
+        subject: 'Your ' + app_settings.project_name + ' password has been changed',
         text: 'Hello,\n\n' +
           'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
       };
@@ -353,16 +354,16 @@ exports.postForgot = function(req, res, next) {
     },
     function(token, user, done) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
-        service: 'SendGrid',
+        service: 'Gmail',
         auth: {
-          user: secrets.sendgrid.user,
-          pass: secrets.sendgrid.password
+          user: secrets.gmail.user,
+          pass: secrets.gmail.password
         }
       });
       var mailOptions = {
         to: user.email,
-        from: 'hackathon@starter.com',
-        subject: 'Reset your password on Hackathon Starter',
+        from: app_settings.contact_email,
+        subject: 'Reset your password on ' + app_settings.project_name,
         text: 'You are receiving this email because you (or someone else) have requested the reset of the password for your account.\n\n' +
           'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
           'http://' + req.headers.host + '/reset/' + token + '\n\n' +
